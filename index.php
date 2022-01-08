@@ -43,23 +43,24 @@
         }
 
         $gano = GanoJugador($arreglo);
+       
         ?>
 
         <div class="container mt-3">
             <form action="ControlBingo.php">
-              
+
                 <?php
                 if ($gano) {
                     ?>
                     <div class="alert alert-success" role="alert">
                         Felicitaciones!! BINGO
                     </div>
-                  <input type="hidden" name="accion" value="reiniciar">
+                    <input type="hidden" name="accion" value="reiniciar">
                     <button type="submit" class="btn btn-primary" >Reiniciar Juego</button>
                     <?php
                 } else {
                     ?>
-                      <input type="hidden" name="accion" value="generar">
+                    <input type="hidden" name="accion" value="generar">
                     <button type="submit" class="btn btn-primary" >Generar numero</button>
                     <?php
                 }
@@ -104,15 +105,13 @@
 
                 endfor;
                 ?>
-
-
             </table> 
             <br>
 
             <?php
             if (count($generados) > 0) {
                 ?>
-                <h1>Numeros Seleccionados:</h1>
+                <h1>Numeros Seleccionados (<?=count($generados)?>):</h1>
 
                 <?php
                 for ($i = count($generados) - 1; $i >= 0; $i--) {

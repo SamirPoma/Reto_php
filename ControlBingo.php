@@ -21,7 +21,10 @@ if (!isset($_SESSION["generados"])) {
 
 if ($accion == "generar") {
 
-    $numero = rand(1, 75);
+    do{
+        $numero = rand(1, 75);
+        $indGen = BuscarNumeroGen($generados, $numero);
+    }while($indGen != -1);
 
     $indice = BuscarNumero($arreglo, $numero);
 
